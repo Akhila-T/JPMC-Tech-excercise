@@ -1,6 +1,5 @@
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -12,11 +11,6 @@ class SortedRotatedArrayTest {
 	static void setUpBeforeClass() throws Exception {
 		sar= new SortedRotatedArray();
 	}
-
-	@AfterAll
-	static void tearDownAfterClass() throws Exception {
-	}
-
 
 	@Test
 	void shouldReturnIndexWhenGivenMultipleNumbersAsInput() {
