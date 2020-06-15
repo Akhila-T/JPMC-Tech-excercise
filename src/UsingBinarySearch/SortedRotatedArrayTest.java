@@ -1,3 +1,4 @@
+package UsingBinarySearch;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 import org.junit.jupiter.api.BeforeAll;
@@ -18,13 +19,7 @@ class SortedRotatedArrayTest {
 		int[] targets =new int[] {3,6,11,13};
 		
 		int[] expectedResult =new int[] {1,3,6,-1};
-		int[] actualResult= new int[targets.length];
-		
-		int pivot= sar.getPivotIndex(nums, 0, nums.length-1);
-		
-		for(int i=0; i<targets.length; i++) {
-			actualResult[i]=sar.getOriginalIndex(nums, targets[i], pivot, nums.length);
-		}
+		int[] actualResult=sar.getOriginalIndices(nums, targets);
 		
 		assertArrayEquals(expectedResult, actualResult);
 	}
@@ -32,17 +27,11 @@ class SortedRotatedArrayTest {
 	
 	@Test
 	void shouldReturnIndexWhenGivenTwoNumbersAsInput() {
-		int[] nums= new int[] {1,5};
+		int[] nums= new int[] {3,5};
 		int[] targets =new int[] {5};
 		
 		int[] expectedResult =new int[] {1};
-		int[] actualResult= new int[targets.length];
-		
-		int pivot=sar.getPivotIndex(nums, 0, nums.length-1);
-		
-		for(int i=0; i<targets.length; i++) {
-			actualResult[i]=sar.getOriginalIndex(nums, targets[i], pivot, nums.length);
-		}
+		int[] actualResult=sar.getOriginalIndices(nums, targets);
 		
 		assertArrayEquals(expectedResult, actualResult);
 	}
@@ -53,13 +42,7 @@ class SortedRotatedArrayTest {
 		int[] targets =new int[] {-11,-9,-5,-1,1,5,7,9};
 		
 		int[] expectedResult =new int[] {0,1,2,3,4,5,6,7};
-		int[] actualResult= new int[targets.length];
-		
-		int pivot=sar.getPivotIndex(nums, 0, nums.length-1);
-		
-		for(int i=0; i<targets.length; i++) {
-			actualResult[i]=sar.getOriginalIndex(nums, targets[i], pivot, nums.length);
-		}
+		int[] actualResult=sar.getOriginalIndices(nums, targets);
 		
 		assertArrayEquals(expectedResult, actualResult);
 	}
@@ -70,13 +53,7 @@ class SortedRotatedArrayTest {
 		int[] targets =new int[] {85,78};
 		
 		int[] expectedResult =new int[] {-1,0};
-		int[] actualResult= new int[targets.length];
-		
-		int pivot=sar.getPivotIndex(nums, 0, nums.length-1);
-		
-		for(int i=0; i<targets.length; i++) {
-			actualResult[i]=sar.getOriginalIndex(nums, targets[i], pivot, nums.length);
-		}
+		int[] actualResult=sar.getOriginalIndices(nums, targets);
 		
 		assertArrayEquals(expectedResult, actualResult);
 	}
@@ -87,13 +64,18 @@ class SortedRotatedArrayTest {
 		int[] targets =new int[] {86};
 		
 		int[] expectedResult =new int[] {-1};
-		int[] actualResult= new int[targets.length];
+		int[] actualResult=sar.getOriginalIndices(nums, targets);
 		
-		int pivot=sar.getPivotIndex(nums, 0, nums.length-1);
+		assertArrayEquals(expectedResult, actualResult);
+	}
+	
+	@Test
+	void shouldReturnMatchingFirstIndexWhenGivenTwoNumbers() {
+		int[] nums= new int[] {1,3};
+		int[] targets =new int[] {1};
 		
-		for(int i=0; i<targets.length; i++) {
-			actualResult[i]=sar.getOriginalIndex(nums, targets[i], pivot, nums.length);
-		}
+		int[] expectedResult =new int[] {0};
+		int[] actualResult=sar.getOriginalIndices(nums, targets);
 		
 		assertArrayEquals(expectedResult, actualResult);
 	}
